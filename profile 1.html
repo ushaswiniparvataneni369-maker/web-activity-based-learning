@@ -1,0 +1,632 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ushaswini | My Portfolio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #020d20;
+    color: #eef4ff;
+}
+
+/* Header */
+header {
+    padding: 15px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    background: #06152f;
+    border-bottom: 1px solid #18396b;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.logo span {
+    background: linear-gradient(90deg, #20cfff, #b94cff);
+    color: transparent;
+    background-clip: text;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 12px;
+    padding: 8px 0;
+}
+
+nav a:hover {
+    color: #c36bff;
+    border-bottom: 2px solid #c36bff;
+}
+
+/* Home */
+.hero {
+    min-height: 270px;
+    padding: 40px 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    flex-wrap: wrap;
+    background:
+        radial-gradient(ellipse at 90% 30%, #30136d, transparent 40%),
+        linear-gradient(120deg, #031127, #071b4a, #100b35);
+    border-bottom: 1px solid #18396b;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 260px;
+}
+
+.hero h3 {
+    font-size: 22px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 5vw, 65px);
+    margin: 5px 0;
+    background: linear-gradient(90deg, #16d5ff, #bd39ff);
+    color: transparent;
+    background-clip: text;
+}
+
+.hero h2 {
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.hero p {
+    max-width: 470px;
+    line-height: 1.5;
+    font-size: 17px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 11px 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #1769ff, #c52cff);
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px #7e4cff;
+}
+
+.quote {
+    color: #c5a6ff;
+    font-size: 27px;
+    font-style: italic;
+    text-align: center;
+    line-height: 1.35;
+    transform: rotate(-7deg);
+}
+
+/* Sections */
+section {
+    padding: 25px 12%;
+    scroll-margin-top: 15px;
+}
+
+.section-title {
+    font-size: 25px;
+    margin-bottom: 18px;
+}
+
+.section-title span {
+    color: #a855ff;
+}
+
+/* About */
+.about-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 0.8fr;
+    gap: 25px;
+    align-items: center;
+}
+
+.about-text {
+    line-height: 1.6;
+    padding-right: 20px;
+    border-right: 1px solid #244477;
+}
+
+.details p {
+    margin: 12px 0;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.details strong {
+    font-size: 15px;
+}
+
+.art {
+    text-align: center;
+    font-size: 65px;
+    color: #8055ff;
+}
+
+.art p {
+    font-size: 13px;
+    color: #65d9ff;
+}
+
+/* Skills */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.skill-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 100px;
+    padding: 15px;
+    background: linear-gradient(135deg, #0b1c3a, #06142c);
+    border: 1px solid #194576;
+    border-bottom: 6px solid #ff6476;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.skill-card:nth-child(2) {
+    border-bottom-color: #08c7ff;
+}
+
+.skill-card:nth-child(3) {
+    border-bottom-color: #ffe34f;
+}
+
+.skill-card:nth-child(4) {
+    border-bottom-color: #a34bff;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px #152957;
+}
+
+.skill-icon {
+    font-size: 32px;
+}
+
+.skill-card h3 {
+    font-size: 16px;
+    margin-bottom: 7px;
+}
+
+.skill-card p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #d6e3f8;
+}
+
+/* Projects */
+.project-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.project-heading .section-title {
+    margin-bottom: 0;
+}
+
+.project-heading > a {
+    color: #19caff;
+    text-decoration: none;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.project-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 15px;
+    background: #061731;
+    border: 1px solid #204577;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 20px #142951;
+}
+
+.project-icon {
+    min-width: 55px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    background: #10264b;
+    border-radius: 8px;
+}
+
+.project-info {
+    flex: 1;
+}
+
+.project-card h3 {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 7px;
+}
+
+.project-card p {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #d0def5;
+}
+
+.project-card .btn {
+    font-size: 12px;
+    padding: 8px 13px;
+    margin-top: 8px;
+}
+
+/* Contact */
+.contact-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    background: linear-gradient(110deg, #061a38, #071d40);
+    border: 1px solid #193c70;
+    border-radius: 12px;
+}
+
+.contact-box h2 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.contact-box h2 span {
+    color: #b35cff;
+}
+
+.contact-item {
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.contact-item strong {
+    font-size: 14px;
+}
+
+.contact-item a {
+    color: #d9e7ff;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    color: #30d6ff;
+}
+
+/* Footer */
+footer {
+    padding: 20px;
+    background: #041127;
+    border-top: 1px solid #18396b;
+    color: #d8e4f9;
+    font-size: 13px;
+    text-align: center;
+}
+
+footer span {
+    color: #ff515d;
+}
+
+/* Mobile screen */
+@media (max-width: 1000px) {
+    header {
+        justify-content: center;
+    }
+
+    nav {
+        text-align: center;
+    }
+
+    .about-layout {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .art {
+        display: none;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    section {
+        padding: 25px 6%;
+    }
+
+    .hero {
+        padding: 35px 7%;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .quote {
+        display: none;
+    }
+
+    .about-layout,
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-text {
+        border-right: none;
+        border-bottom: 1px solid #244477;
+        padding: 0 0 15px;
+    }
+
+    .contact-box {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    nav a {
+        margin: 5px 7px;
+        font-size: 14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="logo">&lt;/&gt; <span>My Portfolio</span></div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- HOME SECTION -->
+<div class="hero" id="home">
+    <div class="hero-text">
+        <h3>Hello, I'm</h3>
+        <h1>Ushaswini</h1>
+        <h2>B.Tech 1st Year | CSM</h2>
+        <p>Passionate about learning, coding and building
+        creative web experiences.</p>
+
+        <a href="#about" class="btn">
+            Explore My Journey &rarr;
+        </a>
+    </div>
+
+    <div class="quote">
+        Better<br>
+        Code<br>
+        Better<br>
+        Future ♥
+    </div>
+</div>
+
+<!-- ABOUT SECTION -->
+<section id="about">
+    <div class="about-layout">
+
+        <div class="about-text">
+            <h2 class="section-title">
+                ♙ About <span>Me</span>
+            </h2>
+
+            <p>
+                I am a first-year B.Tech student at NRI University,
+                branch CSM. I love exploring new technologies,
+                solving problems and creating simple yet useful
+                web solutions.
+            </p>
+        </div>
+
+        <div class="details">
+            <p>
+                🎓 <strong>Education</strong><br>
+                B.Tech - Computer Science (CSM)
+            </p>
+
+            <p>
+                ♡ <strong>Hobbies</strong><br>
+                Reading, Music, Travel
+            </p>
+
+            <p>
+                ◎ <strong>Goal</strong><br>
+                Become a skilled software developer
+                and make an impact in the tech world.
+            </p>
+        </div>
+
+        <div class="art">
+            💻
+            <p>Learn • Create • Grow</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- SKILLS SECTION -->
+<section id="skills">
+    <h2 class="section-title">⚙ My <span>Skills</span></h2>
+
+    <div class="skills-grid">
+
+        <div class="skill-card">
+            <div class="skill-icon">🟠</div>
+            <div>
+                <h3>HTML</h3>
+                <p>Creating the structure of web pages.</p>
+            </div>
+        </div>
+
+        <div class="skill-card">
+            <div class="skill-icon">🔵</div>
+            <div>
+                <h3>CSS</h3>
+                <p>Designing beautiful and responsive layouts.</p>
+            </div>
+        </div>
+
+        <div class="skill-card">
+            <div class="skill-icon">🐍</div>
+            <div>
+                <h3>Python</h3>
+                <p>Learning to build logic and programs.</p>
+            </div>
+        </div>
+
+        <div class="skill-card">
+            <div class="skill-icon">💡</div>
+            <div>
+                <h3>Problem Solving</h3>
+                <p>Thinking creatively to find better solutions.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- PROJECTS SECTION -->
+<section id="projects">
+
+    <div class="project-heading">
+        <h2 class="section-title">♧ My <span>Projects</span></h2>
+        <a href="#projects">View All &rarr;</a>
+    </div>
+
+    <div class="projects-grid">
+
+        <div class="project-card">
+            <div class="project-icon">💻</div>
+
+            <div class="project-info">
+                <h3>Personal Portfolio Website</h3>
+                <p>A simple and responsive personal website
+                using HTML &amp; CSS.</p>
+                <a href="#home" class="btn">View Project &rarr;</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-icon">🏫</div>
+
+            <div class="project-info">
+                <h3>College Information Website</h3>
+                <p>Displays college details, courses,
+                departments and facilities.</p>
+                <a href="#about" class="btn">View Project &rarr;</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-icon">📚</div>
+
+            <div class="project-info">
+                <h3>Online Learning Platform</h3>
+                <p>Shows course categories, lessons
+                and learning information.</p>
+                <a href="#skills" class="btn">View Project &rarr;</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact">
+    <div class="contact-box">
+
+        <div>
+            <h2>✉ Contact <span>Me</span></h2>
+            <div class="contact-item">
+                <strong>Email</strong><br>
+                <a href="mailto:ushaswini@example.com">
+                    ushaswini@example.com
+                </a>
+            </div>
+        </div>
+
+        <div class="contact-item">
+            <strong>☎ Phone</strong><br>
+            +91 98765 43210
+        </div>
+
+        <div class="contact-item">
+            <strong>📍 Location</strong><br>
+            Vijayawada, Andhra Pradesh
+        </div>
+
+        <a class="btn" href="mailto:ushaswini@example.com">
+            Send Message &rarr;
+        </a>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>
+        © 2026 My Portfolio | Made with
+        <span>♥</span> HTML &amp; CSS
+    </p>
+</footer>
+
+</body>
+</html>
